@@ -1,0 +1,25 @@
+language: java
+jdk:
+- oraclejdk8
+script:
+  - cd src 
+  - mvn deploy --settings .travis.settings.xml
+notifications:
+  email: false
+deploy:
+  provider: releases
+  api_key:
+    secure: gPAUkRc4F+a69nSoDUSoE6itcWGRvBokXCQkMNIXmTDBCXXzAIvvO7VyLnkX994WFZ7MDqqwmetTNbMzq8Kt1oYhvN88K01oCM8dSq6rD7aieq535rXOCabwWAWUWhAjWsUDb85CyFyoXwOGc68Jk86Gpy7HFxiM908fy7JIMsZ3L8yvfInMpYBx2eNGoXDISwkX/mFcyl95lVA60DvL0BzyOSgKPWBZqp1lIesRWC2ugyeDvAkF5vk2eJc+a52BIbUn9x/U+oE8efuz7z29jmu5oLN6hh/jNyhuypQIZFK97HKAz7O6tawqGLLw8cfAAlz3TbTFGYjO0ASXiFxXbd4QK0PZmbyhWM6F4JKS4d8PJ7lWitIP5JZIlqc/+WdNMcxvqlfCYNfl/tak4TDfJDosfbqMdjYRSIKoFu8g+9FgoiXlaYjZndggTTm8YWMu4q3nnC4UW3DmiCppf7EBtLmTVFkUR6Qu++qFDyjgWqPCwES/NRNRNPPGvzSIaaKan9oVZoSYy3MILysjWKcNiOLzvKRpFKcavMB6DhvBpibh/aPwHtGtXF5Jfl0zyZHLLP5uRyiRnOLQmgwmmO7hXahiMOfuc/BfvYcZZNzCX8pyf7fQ9QPVrt6dj5lS8a6RWen+vJtK+YPGmMi7NSd60V5do8WJW5gEmTal2HOaV+0=
+  file_glob: true
+  file: "*/target/*.zip"
+  skip_cleanup: true
+  on:
+    repo: INTER-IoT/gateway-extensions-common
+    tags: true
+    branches:
+      only:
+        - master
+env:
+  global:
+    - secure: "lc9toJ6UJ4MOiRsWB/cyDXzTZX+zN/0YlPOvcqAWxvzxPygf6WzQWlMLZieL7hERoOtNjiNOoP/7H5YSuzvqqQ/ezwV+M9dXj4gBa7YbyVecHR+8NGy9Uv1pgNtmHlw1UcEW5eJhFx67V1pVb7MAtxjFqy3g5ZoONz+Po7ziG9xdaO+hxFlCyM9jWWqiAQY09si0aZuYFAqTJevq5btfn8IKDfpYCrMIRnh/frvzPtEl8HimoFqTiqVtzlm1+ddPeIKYEVwMgzw4qI24R9yGQKlhj74f+ZKGUqiyMJhz1sCij9yGD+RFOc7jVN81M3mNdmO7gycRKgcKqkzG4zSTf1Yq6Q8p6QFPKVstWWKtq81XaW0DOwHYyx9YxEDxfZTnxNqt5u3LSTvo7Tm6YVg7r2dKAdjTWAVrKhXH2gk8pVIKKBdiHAYRM7KDVN5uOD4Erqd7l7fXvSJoepBon+Xhv/GCwfHrXi5AD0zENV/zkvQ7iBxi7wVxCjT2yncSgn8Tl4Snp9YyWv5x6F7Xpc/LvhZ3LYZeT1/6HRv7ukS3fhCEcozZ/Kln5jbWIF16RhaGP0iGiNZhhai1VeQEr+KvQF773OeZbT4cswbzglWymllbGeCC/gqf2lzLFwhYKUp9+jxmHtkcmdDMnpMdaZ326Xpq6ZtilDtK5L3Zoml7Wj4="
+    - secure: "A6LGh591wSbUBmJyUv38ZdtR42XSgdsAw+O9fG/nYWzT7updqjhoPypP/WaUMz4GoIxC+esngOpKDGZ5OmosmBZyX7C8ifFJ8JmxWPTVt3juPh8oIoMSPtIRK5azVMoKQCcrsZbGKCsEb2Hk02rNZHnVaqLGfolJBR5OogMIsK4gia1AHzeKFM/bPN8NiaBoSlReJDEcbpeQoHeIXeYSkwE/LlhL3/S/AaybUyytBdJMwwS/f3Ne7i+YjdrUhpHu8gj28Ne8Fonui8n5t2ZTsXAXdwJask150rLqYw27VKi4KrSo7dKQHBmzP27ficN33KlT2ivZC3IM9274aEheiP8CTDPcfrl4/2Av29/M5mn58GbUJXGY44UIXlalJvjHBajP7xjPvN/vKek68oBFMRYztKVNcE12/SIVx1/yP1fkOKt/VCHW9kvq6FApfcl1gjC2TzQ535xk93wYmUHc2jdwxfaP2lUFpHLDHBDI4LKpxUhHgoMLPI8vKZb2moEHdqu7dbSAVgE2nSgdEp8Oe7HdULhOszwcs8dq+k8QBQaTqZZg6A3pTMwOBk9lht5KSCAk7MNBdykuCj/Glsvls/AMYl2nvpx3uJwC5tS6nau/kQ9UC4Je+8n+ewujLVQD7FhQbmTw+kNU6DwNC9CCK9m0Iwd2MPKqN1Y7+ffH+Jk="
