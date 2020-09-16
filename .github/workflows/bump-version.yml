@@ -19,6 +19,8 @@ jobs:
           java-version: 1.8
       - name: Update to latest parent version
         run: mvn -f ./src/pom.xml versions:update-parent -DallowSnapshots=true -DparentVersion=${{ github.event.inputs.version }} -DgenerateBackupPoms=false
+      - name: Update child modules
+        run: mvn -f ./src/pom.xml versions:update-child-modules -DallowSnapshots=true -DgenerateBackupPoms=false
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3.3.0
         with:
